@@ -3,4 +3,4 @@ project(interview)
 
 add_library(media
     SHARED
-    MediaController.cpp)
+    native-data.cpp)

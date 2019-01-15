@@ -21,6 +21,15 @@ namespace movies {
 
         //optional challenge 1: Load image from URL
         std::string imageUrl;
+
+        std::string extractJSON() {
+            std::string json = "{";
+            json += "\"name\":\"" + name + "\",";
+            json += "\"age\":" + std::to_string(age) + ",";
+            json += "\"imageUrl\":\"" + imageUrl + "\"";
+            json += "}";
+            return json;
+        }
     };
 
     class Movie {
@@ -28,6 +37,13 @@ namespace movies {
         std::string name;
         int lastUpdated;
 
+        std::string extractJSON() {
+            std::string json = "{";
+            json += "\"name\":\"" + name + "\",";
+            json += "\"lastUpdated\":" + std::to_string(lastUpdated);
+            json += "}";
+            return json;
+        }
     };
 
     class MovieDetail {
@@ -36,6 +52,24 @@ namespace movies {
         float score;
         std::vector<Actor> actors;
         std::string description;
+
+        std::string extractJSON() {
+            std::string json = "{";
+            json += "\"name\":\"" + name + "\",";
+            json += "\"description\":\"" + description + "\",";
+            json += "\"score\":" + std::to_string(score) + ",";
+
+            std::string separator = "";
+            std::string array = "[";
+            for(int i = 0; i < actors.size(); i++) {
+                array += separator + actors.at(i).extractJSON();
+                separator = ",";
+            }
+            array += "]";
+            json += "\"actors\":" + array;
+            json += "}";
+            return json;
+        }
     };
 
     class MovieController {
