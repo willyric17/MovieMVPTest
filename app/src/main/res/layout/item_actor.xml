@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/card"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="4dp">
+  <android.support.constraint.ConstraintLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent">
+    <ImageView
+        android:id="@+id/actorPhoto"
+        app:layout_constraintDimensionRatio="1:1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:scaleType="centerCrop"
+        tools:src="@mipmap/ic_launcher"
+        tools:ignore="MissingConstraints"/>
+    <TextView
+        android:id="@+id/actorName"
+        app:layout_constraintTop_toBottomOf="@id/actorPhoto"
+        android:layout_width="match_parent"
+        style="@style/TextAppearance.AppCompat.Body1"
+        tools:text="Tom Cruise (56)"
+        android:layout_height="wrap_content"
+        android:padding="8dp"/>
+  </android.support.constraint.ConstraintLayout>
+</android.support.v7.widget.CardView>

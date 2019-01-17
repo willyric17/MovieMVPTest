@@ -2,7 +2,7 @@ package com.willy.movies.model
 
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.whenever
-import com.willy.Injector
+import com.willy.movies.Injector
 import com.willy.movies.entity.Movie
 import io.reactivex.schedulers.Schedulers
 import org.junit.Assert

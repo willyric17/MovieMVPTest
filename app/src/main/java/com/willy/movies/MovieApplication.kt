@@ -1,10 +1,9 @@
 package com.willy.movies
 
 import android.app.Application
-import android.util.Log
-import com.willy.Injector
-import com.willy.MovieApplicationInjector
-import com.willy.movies.model.NativeRepository
+import com.bumptech.glide.Glide
+import io.reactivex.Single
+import io.reactivex.schedulers.Schedulers
 
 class MovieApplication : Application() {
   override fun onCreate() {
@@ -12,5 +11,9 @@ class MovieApplication : Application() {
     System.loadLibrary("media")
 
     Injector.injector = MovieApplicationInjector()
+    Single.fromCallable {
+      Glide.get(this).clearDiskCache()
+    }.subscribeOn(Schedulers.io())
+        .subscribe()
   }
 }

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MovieDetailActivity">
+  <hyogeun.github.com.colorratingbarlib.ColorRatingBar
+      android:id="@+id/rating"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:rating="2"
+      app:changeable="false"
+      android:layout_margin="8dp"
+      android:layout_alignParentTop="true"
+      android:layout_centerHorizontal="true"
+      app:empty_color="#4000"
+      app:progress_color="@color/colorAccent"/>
+  <TextView
+      android:id="@+id/descriptionText"
+      android:layout_below="@id/rating"
+      android:padding="8dp"
+      tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec efficitur ac felis vitae laoreet. In hac habitasse platea dictumst. Phasellus ac mauris quis tortor sodales interdum faucibus sit amet mi. In vitae ipsum mollis, dapibus nisl quis, iaculis purus. Donec eleifend interdum sem tempor feugiat. Proin non vulputate justo. Etiam non ipsum leo. "
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"/>
+  <android.support.v7.widget.RecyclerView
+      android:id="@+id/recyclerView"
+      android:orientation="vertical"
+      android:layout_below="@id/descriptionText"
+      android:padding="4dp"
+      android:layout_alignParentBottom="true"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"/>
+  <FrameLayout
+      android:id="@+id/loadingPane"
+      android:layout_width="match_parent"
+      tools:visibility="gone"
+      android:background="#4000"
+      android:layout_height="match_parent">
+    <ProgressBar
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+  </FrameLayout>
+</RelativeLayout>
