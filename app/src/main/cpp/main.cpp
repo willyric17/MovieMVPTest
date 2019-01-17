@@ -38,6 +38,9 @@ int main()
     MovieController controller = MovieController();
     cout << extractMoviesToJson(controller.getMovies()) << endl;
     cout << endl;
-    cout << extractMovieDetailsToJson(controller) << endl;
+    MovieDetail* detail = controller.getMovieDetail("Top Gun");
+    if (detail != nullptr) {
+        cout << detail->extractJSON() << endl;
+    }
     return 0;
 }

@@ -49,11 +49,18 @@ extern "C" {
         return (*env).NewStringUTF(json.c_str());
     }
 
-    jstring Java_com_willy_movies_model_NativeRepository_getMovieDetailData(
+    jstring Java_com_willy_movies_model_NativeRepository_getMovieDetail(
             JNIEnv *env,
-            jobject
+            jobject,
+            jstring moviename
             ) {
-        string json = extractMovieDetailsToJson(controller);
-        return (*env).NewStringUTF(json.c_str());
+
+        const char *name = (*env).GetStringUTFChars(moviename, 0);
+        MovieDetail* detail = controller.getMovieDetail(name);
+        string out = "";
+        if (detail != nullptr) {
+            out = detail->extractJSON();
+        }
+        return (*env).NewStringUTF(out.c_str());
     }
 }

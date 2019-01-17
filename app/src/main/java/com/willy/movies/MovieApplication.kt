@@ -2,6 +2,8 @@ package com.willy.movies
 
 import android.app.Application
 import android.util.Log
+import com.willy.Injector
+import com.willy.MovieApplicationInjector
 import com.willy.movies.model.NativeRepository
 
 class MovieApplication : Application() {
@@ -9,8 +11,6 @@ class MovieApplication : Application() {
     super.onCreate()
     System.loadLibrary("media")
 
-    val repository = NativeRepository()
-    Log.d("json", repository.getMovieData())
-    Log.d("json", repository.getMovieDetailData())
+    Injector.injector = MovieApplicationInjector()
   }
 }
